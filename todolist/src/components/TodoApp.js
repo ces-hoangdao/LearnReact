@@ -38,17 +38,17 @@ class TodoApp extends React.Component {
     todos: [
       {
         id: 1,
-        title: "Work home",
+        title: "Sint eu anim dolor laborum pariatur laboris ullamco nulla ea commodo eiusmod aute quis.",
         completed: true,
       },
       {
         id: 2,
-        title: "GO  home",
+        title: "lLaborum tempor consequat exercitation dolor in.",
         completed: true,
       },
       {
         id: 3,
-        title: "Do morning EX",
+        title: "Sunt nostrud consequat aliquip mollit do.",
         completed: false,
       },
     ],
