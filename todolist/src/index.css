@@ -6,12 +6,12 @@
 body{
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     line-height:1.4;
-    background-color: #EBF5DF;
-    color: #EDB458;
+    background-color: #aebd9d;
+    color: #000000;
 
 }
 .container{
-    max-width: 500px;
+    max-width: 800px;
     margin: 0 auto;
     border: 1px solid #D4D4AA;
 

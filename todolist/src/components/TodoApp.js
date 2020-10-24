@@ -30,7 +30,7 @@ class TodoApp extends React.Component{
                 id: 3, 
                 title: "Do morning EX",
                 completed : false
-            },
+            }
         ]
     };
     render(){
