@@ -7,16 +7,18 @@
 body {
     font-family: "Segoe UI", Arial, Helvetica, sans-serif;
     line-height: 1.4;
-    background-color: #aebd9d;
+    background-color: #e8e6e3;
     color: #000000;
-    background-image: url("./Picture/waller.jpg");
+    
 
 }
 
 .container {
-    max-width: 800px;
+    max-width: 700px;
     margin: 0 auto;
     border: 1px solid #D4D4AA;
+    background-image: url("./Picture/bgr.jpg");
+  
 
 }
 
@@ -24,10 +26,25 @@ body {
     list-style-type: none;
     padding: 10px 15px;
     border-top: 1px solid #D4D4AA;
+    
 }
 
 .todo-item input {
     margin-right: 15px;
+}
+.todo-checkbox {
+    width: 1.3em;
+    height: 1.3em;
+    background-color: white;
+    border-radius: 50%;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+.todo-checkbox:checked {
+    background-color: gray;
 }
 
 .completed {
@@ -37,11 +54,11 @@ body {
 }
 
 .btn-delete {
-    background: #d35e0f;
+    background: #d60606;
     color: #fff;
-    border: 1px solid #d35e0f;
+    border: 1px solid ;
     padding: 3px 7px;
-    border-radius: 10%;
+    
     cursor: pointer;
     float: right;
     outline: none;
@@ -53,7 +70,7 @@ body {
 }
 
 .input-text {
-    flex: 8;
+    flex: 9;
     font-size: 14px;
     padding: 6px 15px;
     background: rgba(103, 140, 137, 0.65);
@@ -71,7 +88,6 @@ body {
 
 .input-submit {
     flex: 2;
-    border-radius: 4px;
     border: none;
     background: #678c89;
     color: #fff;
