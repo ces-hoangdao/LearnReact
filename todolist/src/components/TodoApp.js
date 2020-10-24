@@ -14,6 +14,18 @@ class TodoApp extends React.Component{
             })
         })
     };
+    deleteTodo = id =>{
+        console.log("delete",id);
+        this.setState({
+            todos:[
+                /* ... toan tu spread operator : lay todo hien tai */
+                ...this.state.todos.filter(todo => {
+                    /* ham filter() tra ve 1 mang cac phan tu thoa man dk nao do */
+                    return todo.id !== id;
+                })
+            ]
+        })
+    }
     state = { 
         todos: [
             {
@@ -37,7 +49,10 @@ class TodoApp extends React.Component{
         return (
             <div className = "container">
                 <Header></Header>
-                <Todos todos={this.state.todos} handleChange = {this.handleCheckboxchange}></Todos>,
+                <Todos todos={this.state.todos} 
+                handleChange = {this.handleCheckboxchange}
+                deleteTodo = {this.deleteTodo}
+                ></Todos>,
             </div>
         );
     }

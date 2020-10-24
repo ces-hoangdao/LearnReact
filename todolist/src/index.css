@@ -29,3 +29,13 @@ body{
     color: gray;
     text-decoration: line-through;
 }
+.btn-delete{
+    background: #d35e0f;  
+    color: #fff;   
+    border: 1px solid #d35e0f; 
+    padding: 3px 7px;   
+    border-radius: 10%;  
+    cursor: pointer;   
+    float: right;    
+    outline: none;
+}
