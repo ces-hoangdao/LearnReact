@@ -2,7 +2,7 @@ import React from "react";
 import Header from "../components/layout/Header";
 import Todos from "./Todos";
 import AddTodo from "./AddTodo";
-import uuid from "uuid";
+import axios from "axios";
 
 class TodoApp extends React.Component {
   handleCheckboxchange = (id) => {
@@ -16,43 +16,49 @@ class TodoApp extends React.Component {
     });
   };
   deleteTodo = (id) => {
-    this.setState({
-      todos: [
-        /* ... toan tu spread operator : lay todo hien tai */
-        ...this.state.todos.filter((todo) => {
-          /* ham filter() tra ve 1 mang cac phan tu thoa man dk nao do */
-          return todo.id !== id;
-        }),
-      ],
-    });
+    axios
+      .delete(`https://jsonplaceholder.typicode.com/todos/${id}`)
+      .then((reponse) =>
+        this.setState({
+          todos: [
+            ...this.state.todos.filter((todo) => {
+              return todo.id !== id;
+            }),
+          ],
+        })
+      );
   };
   addTodo = (title) => {
-    const newTodo = { 
-        id: uuid.v4(), 
-        title: title, 
-        completed: false };
-    this.setState({ todos:
-        [...this.state.todos, newTodo] });
+    const todoData = {
+      title: title,
+      completed: false,
+    };
+    axios
+      .post("https://jsonplaceholder.typicode.com/todos", todoData)
+      .then((response) => {
+        console.log(response.data);
+        this.setState({
+          todos: [...this.state.todos, response.data],
+        });
+      });
   };
+
   state = {
-    todos: [
-      {
-        id: 1,
-        title: "Sint eu anim dolor laborum pariatur laboris ullamco nulla ea commodo eiusmod aute quis.",
-        completed: true,
-      },
-      {
-        id: 2,
-        title: "lLaborum tempor consequat exercitation dolor in.",
-        completed: true,
-      },
-      {
-        id: 3,
-        title: "Sunt nostrud consequat aliquip mollit do.",
-        completed: false,
-      },
-    ],
+    todos: [],
   };
+
+  componentDidMount() {
+    const config = {
+      params: {
+        _limit: 15,
+      },
+    };
+    // tạo GET request để lấy danh sách todo
+    axios
+      .get("https://jsonplaceholder.typicode.com/todos", config)
+      .then((response) => this.setState({ todos: response.data }));
+  }
+
   render() {
     return (
       <div className="container">
@@ -63,7 +69,6 @@ class TodoApp extends React.Component {
           handleChange={this.handleCheckboxchange}
           deleteTodo={this.deleteTodo}
         ></Todos>
-        
       </div>
     );
   }

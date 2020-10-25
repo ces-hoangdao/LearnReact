@@ -32,7 +32,7 @@ body {
 .todo-item input {
     margin-right: 15px;
 }
-.todo-checkbox {
+/*.todo-checkbox {
     width: 1.3em;
     height: 1.3em;
     background-color: white;
@@ -43,6 +43,7 @@ body {
     outline: none;
     cursor: pointer;
 }
+*/
 .todo-checkbox:checked {
     background-color: gray;
 }
